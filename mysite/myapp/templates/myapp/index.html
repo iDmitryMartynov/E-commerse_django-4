@@ -4,8 +4,19 @@
         <link rel="stylesheet" href='{% static "myapp/src/output.css" %}'>
 
     </head>
-    <body class="bg-sky-500">
-        <h1> This is index template</h1>
+    <body>
+        <nav>
+            <div>
+                <div>
+                    <div>
+                        <div class="flex">
+                            <img class="h-8 w-8" src='{% static "images/shop.png" %}' alt="logo" />
+                            <span class="text-xl">Pro Shop</span>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </nav>
         <h4> 
             {% comment %} <a href='/myapp/hello/{{item.id}}/'> {% endcomment %}
             {%for item in items%}
