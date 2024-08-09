@@ -1,16 +1,17 @@
 {% load static %}
 <html>
     <head>
-        <link rel="stylesheet" href='{% static "myapp/style.css" %}'>
+        <link rel="stylesheet" href='{% static "myapp/src/output.css" %}'>
+
     </head>
-    <body>
+    <body class="bg-sky-500">
         <h1> This is index template</h1>
         <h4> 
             {% comment %} <a href='/myapp/hello/{{item.id}}/'> {% endcomment %}
             {%for item in items%}
             <a href="{% url 'myapp:detail' item.id %}">
             ID: {{item.id}} | Имя: {{item.name}} | Цена: {{item.price}}  <br/>
-            <a>
+            </a>
             {% endfor %}
         </h4>
     </body>
