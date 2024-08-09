@@ -7,6 +7,6 @@ urlpatterns = [
     #http://127.0.0.1:8000/myapp/hello
     
     #http://127.0.0.1:8000/myapp/
-    path('contacts', contacts)
+    path('contacts/', contacts)
     #http://127.0.0.1:8000/myapp/contacts
     ]

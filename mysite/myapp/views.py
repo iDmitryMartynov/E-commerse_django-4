@@ -1,11 +1,14 @@
 from django.shortcuts import render
 from django.http import HttpResponse
+from .models import Product
 
 def index(request):
-    items = ["iphone", "xiomi", "sumsung"]
+    items = Product.objects.all()
     return HttpResponse(items)
 
 
+
+
 def contacts(request):
-    return HttpResponse("<h1>Это наш Контакты: </h1>")
+    return render(request, 'myapp/contacts.html')
 
