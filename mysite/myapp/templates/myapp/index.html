@@ -1,17 +1,21 @@
+{% extends "myapp/base.html" %}
 {% load static %}
-<html>
-    <head>
-        <link rel="stylesheet" href='{% static "myapp/src/output.css" %}'>
 
-    </head>
-    <body>
-        <nav>
-            <div>
-                <div>
-                    <div>
-                        <div class="flex">
+{% block content %}
+        <nav class="bg-white shadow-lg">
+            <div class="max-w-6xl mx-auto px-4">
+                <div class="flex justify-between">
+                    <div class="flex spase-x-7">
+                        <div>
+                            <a href= "#" class="flex items-center px-2 py-4"> 
                             <img class="h-8 w-8" src='{% static "images/shop.png" %}' alt="logo" />
-                            <span class="text-xl">Pro Shop</span>
+                            <span class="text-gray-500 font-semibold text-xl">Pro Shop</span> 
+                        </a>
+                        </div>
+                        <div class="items-center flex space-x-1"> 
+                            <a href= "#" class="py-4 px-2 text-gray-500 font-semibold border-b-4 border-green-500">Home</a>
+                            <a href= "#" class="py-4 px-2 text-gray-500 font-semibold">About</a>
+                            <a href= "#" class="py-4 px-2 text-gray-500 font-semibold">Contacts</a>
                         </div>
                     </div>
                 </div>
@@ -21,9 +25,8 @@
             {% comment %} <a href='/myapp/hello/{{item.id}}/'> {% endcomment %}
             {%for item in items%}
             <a href="{% url 'myapp:detail' item.id %}">
-            ID: {{item.id}} | Имя: {{item.name}} | Цена: {{item.price}}  <br/>
+            ID: {{item.id}} | Имя: {{item.name}} | Цена: {{item.price}} | Описание: {{item.description}} <br/>
             </a>
             {% endfor %}
         </h4>
-    </body>
-</html>
+        {% endblock content %}
