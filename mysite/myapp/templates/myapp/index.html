@@ -1,4 +1,6 @@
-{% extends "myapp/base.html" %} {% block content %}
+{% extends "myapp/base.html" %}
+
+{% block content %}
 <main
   class="mt-10 mx-auto max-w-7xl px-4 sm: mt-12 sm: px-6 md: mt-16 lg: mt-20 lg: px-8 xl: mt-28"
 >
@@ -19,7 +21,10 @@
   <div
     class="p-10 grid grid-cols-1 sm: grid-cols-1 md: grid-cols-3 xl: grid-col-3 lg: grid-col-3 gap-3"
   >
-    {%for item in items%}
+
+
+
+    {%for item in page_obj%}
     <a href="{% url 'myapp:detail' item.id %}">
       <div class="rounded overflow-hidden shadow-lg">
         <img
@@ -40,7 +45,27 @@
         </div>
       </div>
     </a>
+    
     {% endfor %}
+  </div>
+
+  <div>
+
+    <span>
+      {% if page_obj.has_previous %}
+      <a href="?page=1">First</a>
+      <a href="?page={{page_obj.previous_page_number}}">Previous</a>
+      {% endif %}
+    </span>
+    <span>
+      {{page_obj}}
+    </span>
+    <span>
+      {% if page_obj.has_next %}
+      <a href="?page={{page_obj.next_page_number}}">Next</a>
+      <a href="?page={{page_obj.paginator.num_pages}}">Last</a>
+      {% endif %}
+    </span>
   </div>
 </main>
 
