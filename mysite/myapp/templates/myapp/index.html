@@ -18,12 +18,16 @@
     </p>
   </div>
 
-  <div
-    class="p-10 grid grid-cols-1 sm: grid-cols-1 md: grid-cols-3 xl: grid-col-3 lg: grid-col-3 gap-3"
-  >
+    <div class="mt-5 p-10 justify-center">
+        <h2>Search</h2>
+        <form action="" method="get">
+          <input type="text" name="search" id="">
+        </form>
+    </div>
 
 
 
+  <div class="p-10 grid grid-cols-1 sm: grid-cols-1 md: grid-cols-3 xl: grid-col-3 lg: grid-col-3 gap-3">
     {%for item in page_obj%}
     <a href="{% url 'myapp:detail' item.id %}">
       <div class="rounded overflow-hidden shadow-lg">
